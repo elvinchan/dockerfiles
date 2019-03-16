@@ -1,5 +1,9 @@
 FROM tensorflow/tensorflow:1.10.0-py3
 
-RUN apt-get update
-RUN apt-get install wget
-RUN apt-get install zip
+LABEL maintainer "nszr90 <elvinchan@foxmail.com>"
+
+RUN apt-get update && apt-get install -y \
+    wget \
+    zip \
+    --no-install-recommends \
+    && rm -rf /var/lib/apt/lists/*
